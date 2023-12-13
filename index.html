@@ -46,7 +46,6 @@ $("form").submit(function (e) {
       const forES = urlisEurope.replace("en-gb", "es-es");
       const forIT = urlisEurope.replace("en-gb", "it-it");
       const forPL = urlisEurope.replace("en-gb", "pl-pl");
-
       setTimeout(function() {
           openWindow1 = window.open(forFR,  '_blank'); 
       }, 1000);
@@ -68,8 +67,59 @@ $("form").submit(function (e) {
       }, 5000);
 
     }
+    else if(urlisSingapore.indexOf("en-sg") > -1){
+      const forKR = urlisSingapore.replace("en-sg", "ko-kr");
+      const forJP = urlisSingapore.replace("en-sg", "ja-jp");
+      const forZN = urlisSingapore.replace("en-sg", "zh-cn");
+      setTimeout(function() {
+          openWindow1 = window.open(forKR,  '_blank'); 
+      }, 1000);
+
+      setTimeout(function() {
+          openWindow2 = window.open(forJP,  '_blank'); 
+      }, 2000);
+
+      setTimeout(function() {
+          openWindow3 = window.open(forZN,  '_blank'); 
+      }, 3000);
+
+    }
+    else if(urlisUs.indexOf("en-us") > -1){
+      const forPT = urlisUs.replace("en-us", "pt-br");
+      const forMX = urlisUs.replace("en-us", "es-mx");
+      const forCA = urlisUs.replace("en-us", "en-ca");
+      const forGB = urlisUs.replace("en-us", "en-gb");
+      const forSG = urlisUs.replace("en-us", "en-sg");
+
+      setTimeout(function() {
+          openWindow1 = window.open(forPT,  '_blank'); 
+      }, 1000);
+
+      setTimeout(function() {
+          openWindow2 = window.open(forMX,  '_blank'); 
+      }, 2000);
+
+      setTimeout(function() {
+          openWindow3 = window.open(forCA,  '_blank'); 
+      }, 3000);
+
+      setTimeout(function() {
+          openWindow4 = window.open(forGB,  '_blank'); 
+      }, 4000);
+
+      setTimeout(function() {
+          openWindow5 = window.open(forSG,  '_blank'); 
+      }, 5000);
+
+    }
+    else if(urlisEurope.indexOf("en-ca") > -1){
+      const forFR = urlisCa.replace("en-ca", "fr-ca");
+      setTimeout(function() {
+          openWindow1 = window.open(urlisCa,  '_blank'); 
+      }, 1000);
+    }
     else{
-      alert('For EN-GB Locale Only');
+      alert('For All Locales(EN-US, EN-GB, EN-SG, EN-CA');
     }
 });
 </script>
