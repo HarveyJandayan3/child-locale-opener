@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome - Open All Links</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<style>
+.form-box {
+  max-width: 500px;
+  margin: auto;
+  padding: 50px;
+  background: #ffffff;
+  border: 10px solid #f2f2f2;
+}
+h1, p {
+  text-align: center;
+}
+
+input, textarea {
+  width: 100%;
+}
+</style>
+<body>
+    <div class="form-box">
+        <h1>Open All Child Locales</h1>
+        <form>
+          <div class="form-group">
+            <label for="name">URL</label>
+            <input class="form-control" id="webUrl" type="text" name="webUrl">
+          </div>
+          <input class="btn btn-primary" type="submit" value="Go" />
+          </div>
+        </form>
+      </div>
+</body>
+<script>
+$("form").submit(function (e) {
+  e.preventDefault();
+  var urlisEurope = $('#webUrl').val();
+    if(urlisEurope.indexOf("en-gb") > -1){
+      const forFR = urlisEurope.replace("en-gb", "fr-fr");
+      const forDE = urlisEurope.replace("en-gb", "de-de");
+      const forES = urlisEurope.replace("en-gb", "es-es");
+      const forIT = urlisEurope.replace("en-gb", "it-it");
+      const forPL = urlisEurope.replace("en-gb", "pl-pl");
+
+      setTimeout(function() {
+          openWindow1 = window.open(forFR,  '_blank'); 
+      }, 1000);
+
+      setTimeout(function() {
+          openWindow2 = window.open(forDE,  '_blank'); 
+      }, 2000);
+
+      setTimeout(function() {
+          openWindow3 = window.open(forES,  '_blank'); 
+      }, 3000);
+
+      setTimeout(function() {
+          openWindow4 = window.open(forIT,  '_blank'); 
+      }, 4000);
+
+      setTimeout(function() {
+          openWindow5 = window.open(forPL,  '_blank'); 
+      }, 5000);
+
+    }
+    else{
+      alert('For EN-GB Locale Only');
+    }
+});
+</script>
+</html>
