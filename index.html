@@ -40,7 +40,12 @@ input, textarea {
 $("form").submit(function (e) {
   e.preventDefault();
   var currentUrl = $('#webUrl').val();
-    if(currentUrl.indexOf("en-gb") > -1){
+  if(!currentUrl.match(/^https:\/\//)){
+    alert('HTTPS or HTTP is required');
+    return false;
+  }
+
+   else if(currentUrl.indexOf("en-gb") > -1){
       const forFR = currentUrl.replace("en-gb", "fr-fr");
       const forDE = currentUrl.replace("en-gb", "de-de");
       const forES = currentUrl.replace("en-gb", "es-es");
@@ -119,7 +124,7 @@ $("form").submit(function (e) {
       }, 1000);
     }
     else{
-      alert('All Parent Locales EN-US, EN-GB, EN-SG, EN-CA');
+      alert('For All Locales(EN-US, EN-GB, EN-SG, EN-CA');
     }
 });
 </script>
