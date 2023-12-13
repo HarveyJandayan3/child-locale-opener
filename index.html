@@ -39,13 +39,13 @@ input, textarea {
 <script>
 $("form").submit(function (e) {
   e.preventDefault();
-  var urlisEurope = $('#webUrl').val();
-    if(urlisEurope.indexOf("en-gb") > -1){
-      const forFR = urlisEurope.replace("en-gb", "fr-fr");
-      const forDE = urlisEurope.replace("en-gb", "de-de");
-      const forES = urlisEurope.replace("en-gb", "es-es");
-      const forIT = urlisEurope.replace("en-gb", "it-it");
-      const forPL = urlisEurope.replace("en-gb", "pl-pl");
+  var currentUrl = $('#webUrl').val();
+    if(currentUrl.indexOf("en-gb") > -1){
+      const forFR = currentUrl.replace("en-gb", "fr-fr");
+      const forDE = currentUrl.replace("en-gb", "de-de");
+      const forES = currentUrl.replace("en-gb", "es-es");
+      const forIT = currentUrl.replace("en-gb", "it-it");
+      const forPL = currentUrl.replace("en-gb", "pl-pl");
       setTimeout(function() {
           openWindow1 = window.open(forFR,  '_blank'); 
       }, 1000);
@@ -67,10 +67,10 @@ $("form").submit(function (e) {
       }, 5000);
 
     }
-    else if(urlisSingapore.indexOf("en-sg") > -1){
-      const forKR = urlisSingapore.replace("en-sg", "ko-kr");
-      const forJP = urlisSingapore.replace("en-sg", "ja-jp");
-      const forZN = urlisSingapore.replace("en-sg", "zh-cn");
+    else if(currentUrl.indexOf("en-sg") > -1){
+      const forKR = currentUrl.replace("en-sg", "ko-kr");
+      const forJP = currentUrl.replace("en-sg", "ja-jp");
+      const forZN = currentUrl.replace("en-sg", "zh-cn");
       setTimeout(function() {
           openWindow1 = window.open(forKR,  '_blank'); 
       }, 1000);
@@ -84,12 +84,12 @@ $("form").submit(function (e) {
       }, 3000);
 
     }
-    else if(urlisUs.indexOf("en-us") > -1){
-      const forPT = urlisUs.replace("en-us", "pt-br");
-      const forMX = urlisUs.replace("en-us", "es-mx");
-      const forCA = urlisUs.replace("en-us", "en-ca");
-      const forGB = urlisUs.replace("en-us", "en-gb");
-      const forSG = urlisUs.replace("en-us", "en-sg");
+    else if(currentUrl.indexOf("en-us") > -1){
+      const forPT = currentUrl.replace("en-us", "pt-br");
+      const forMX = currentUrl.replace("en-us", "es-mx");
+      const forCA = currentUrl.replace("en-us", "en-ca");
+      const forGB = currentUrl.replace("en-us", "en-gb");
+      const forSG = currentUrl.replace("en-us", "en-sg");
 
       setTimeout(function() {
           openWindow1 = window.open(forPT,  '_blank'); 
@@ -112,10 +112,10 @@ $("form").submit(function (e) {
       }, 5000);
 
     }
-    else if(urlisEurope.indexOf("en-ca") > -1){
-      const forFR = urlisCa.replace("en-ca", "fr-ca");
+    else if(currentUrl.indexOf("en-ca") > -1){
+      const forFR = currentUrl.replace("en-ca", "fr-ca");
       setTimeout(function() {
-          openWindow1 = window.open(urlisCa,  '_blank'); 
+          openWindow1 = window.open(forFR,  '_blank'); 
       }, 1000);
     }
     else{
