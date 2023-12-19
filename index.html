@@ -14,6 +14,7 @@
   padding: 50px;
   background: #ffffff;
   border: 10px solid #f2f2f2;
+  margin-top: 150px;
 }
 h1, p {
   text-align: center;
@@ -22,35 +23,61 @@ h1, p {
 input, textarea {
   width: 100%;
 }
+#openlinks{
+  margin-bottom:10px;
+}
+.list{
+  margin-top:20px;
+}
+a.localeText {
+    display: block;
+    text-align: center;
+    margin-top:5px;
+    
+}
 </style>
 <body>
     <div class="form-box">
-        <h1>Open All Child Locales</h1>
+        <h1>Locales</h1>
         <form>
           <div class="form-group">
             <label for="name">URL</label>
             <input class="form-control" id="webUrl" type="text" name="webUrl">
           </div>
-          <input class="btn btn-primary" type="submit" value="Go" />
+          <input id="openlinks" class="btn btn-primary" type="submit" value="Open Child Links" />
+          <input id="generatelist" class="btn btn-primary" type="submit" value="Generate List" />
+          <div class="list">
+            <a href="" class="localeText" id="LocaleParent" target="_blank"></a>
+            <a href="" class="localeText" id="LocaleOne" target="_blank"></a>
+            <a href="" class="localeText" id="LocaleTwo" target="_blank"></a>
+            <a href="" class="localeText" id="LocaleThree" target="_blank"></a>
+            <a href="" class="localeText" id="LocaleFour" target="_blank"></a>
+            <a href="" class="localeText" id="LocaleFive" target="_blank"></a>
           </div>
+        </div>
         </form>
+    
       </div>
 </body>
 <script>
-$("form").submit(function (e) {
+$("#openlinks").click(function (e) {
   e.preventDefault();
   var currentUrl = $('#webUrl').val();
   if(!currentUrl.match(/^https:\/\//)){
     alert('HTTPS or HTTP is required');
     return false;
   }
-
    else if(currentUrl.indexOf("en-gb") > -1){
       const forFR = currentUrl.replace("en-gb", "fr-fr");
       const forDE = currentUrl.replace("en-gb", "de-de");
       const forES = currentUrl.replace("en-gb", "es-es");
       const forIT = currentUrl.replace("en-gb", "it-it");
       const forPL = currentUrl.replace("en-gb", "pl-pl");
+
+      setTimeout(function() {
+          openWindow0 = window.open(currentUrl,  '_blank'); 
+      }, 1000);
+
       setTimeout(function() {
           openWindow1 = window.open(forFR,  '_blank'); 
       }, 1000);
@@ -70,12 +97,16 @@ $("form").submit(function (e) {
       setTimeout(function() {
           openWindow5 = window.open(forPL,  '_blank'); 
       }, 5000);
-
     }
     else if(currentUrl.indexOf("en-sg") > -1){
       const forKR = currentUrl.replace("en-sg", "ko-kr");
       const forJP = currentUrl.replace("en-sg", "ja-jp");
       const forZN = currentUrl.replace("en-sg", "zh-cn");
+
+      setTimeout(function() {
+          openWindow0 = window.open(currentUrl,  '_blank'); 
+      }, 1000);
+
       setTimeout(function() {
           openWindow1 = window.open(forKR,  '_blank'); 
       }, 1000);
@@ -87,7 +118,6 @@ $("form").submit(function (e) {
       setTimeout(function() {
           openWindow3 = window.open(forZN,  '_blank'); 
       }, 3000);
-
     }
     else if(currentUrl.indexOf("en-us") > -1){
       const forPT = currentUrl.replace("en-us", "pt-br");
@@ -95,6 +125,10 @@ $("form").submit(function (e) {
       const forCA = currentUrl.replace("en-us", "en-ca");
       const forGB = currentUrl.replace("en-us", "en-gb");
       const forSG = currentUrl.replace("en-us", "en-sg");
+
+      setTimeout(function() {
+          openWindow0 = window.open(currentUrl,  '_blank'); 
+      }, 1000);
 
       setTimeout(function() {
           openWindow1 = window.open(forPT,  '_blank'); 
@@ -115,13 +149,77 @@ $("form").submit(function (e) {
       setTimeout(function() {
           openWindow5 = window.open(forSG,  '_blank'); 
       }, 5000);
-
     }
     else if(currentUrl.indexOf("en-ca") > -1){
       const forFR = currentUrl.replace("en-ca", "fr-ca");
       setTimeout(function() {
+          openWindow0 = window.open(currentUrl,  '_blank'); 
+      }, 1000);
+
+      setTimeout(function() {
           openWindow1 = window.open(forFR,  '_blank'); 
       }, 1000);
+    }
+    else{
+      alert('For All Locales(EN-US, EN-GB, EN-SG, EN-CA');
+    }
+});
+
+
+
+$("#generatelist").click(function (e) {
+  e.preventDefault();
+  $(".localeText").text("");
+  var currentUrl = $('#webUrl').val();
+  if(!currentUrl.match(/^https:\/\//)){
+    alert('HTTPS or HTTP is required');
+    return false;
+  }
+   else if(currentUrl.indexOf("en-gb") > -1){
+      const forFR = currentUrl.replace("en-gb", "fr-fr");
+      const forDE = currentUrl.replace("en-gb", "de-de");
+      const forES = currentUrl.replace("en-gb", "es-es");
+      const forIT = currentUrl.replace("en-gb", "it-it");
+      const forPL = currentUrl.replace("en-gb", "pl-pl");
+
+      $('#LocaleParent').text(currentUrl).attr('href', currentUrl);
+      $('#LocaleOne').text(forFR).attr('href', forFR);
+      $('#LocaleTwo').text(forDE).attr('href', forDE);
+      $('#LocaleThree').text(forES).attr('href', forES);
+      $('#LocaleFour').text(forIT).attr('href', forIT);
+      $('#LocaleFive').text(forPL).attr('href', forPL);
+    }
+    else if(currentUrl.indexOf("en-sg") > -1){
+      const forKR = currentUrl.replace("en-sg", "ko-kr");
+      const forJP = currentUrl.replace("en-sg", "ja-jp");
+      const forZN = currentUrl.replace("en-sg", "zh-cn");
+      
+      $('#LocaleParent').text(currentUrl).attr('href', currentUrl);
+      $('#LocaleOne').text(forKR).attr('href', forKR);
+      $('#LocaleTwo').text(forJP).attr('href', forJP);
+      $('#LocaleThree').text(forZN).attr('href', forZN);
+
+    }
+    else if(currentUrl.indexOf("en-us") > -1){
+      const forPT = currentUrl.replace("en-us", "pt-br");
+      const forMX = currentUrl.replace("en-us", "es-mx");
+      const forCA = currentUrl.replace("en-us", "en-ca");
+      const forGB = currentUrl.replace("en-us", "en-gb");
+      const forSG = currentUrl.replace("en-us", "en-sg");
+
+      $('#LocaleParent').text(currentUrl).attr('href', currentUrl);
+      $('#LocaleOne').text(forPT).attr('href', forPT);
+      $('#LocaleTwo').text(forMX).attr('href', forMX);
+      $('#LocaleThree').text(forCA).attr('href', forCA);
+      $('#LocaleFour').text(forGB).attr('href', forGB);
+      $('#LocaleFive').text(forSG).attr('href', forSG);
+
+    }
+    else if(currentUrl.indexOf("en-ca") > -1){
+      const forFR = currentUrl.replace("en-ca", "fr-ca");
+      
+      $('#LocaleParent').text(currentUrl).attr('href', currentUrl);
+      $('#LocaleOne').text(forFR).attr('href', forFR);
     }
     else{
       alert('For All Locales(EN-US, EN-GB, EN-SG, EN-CA');
